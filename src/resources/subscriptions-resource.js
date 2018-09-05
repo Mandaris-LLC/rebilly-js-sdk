@@ -1,8 +1,8 @@
-import {csvHeader} from '../request-headers';
+import { csvHeader } from '../request-headers';
 
-export default function SubscriptionsResource({apiHandler}) {
+export default function SubscriptionsResource({ apiHandler }) {
     return {
-        async getAll({limit = null, offset = null, sort = null, expand = null, filter = null, q = null, criteria = null} = {}) {
+        async getAll({ limit = null, offset = null, sort = null, expand = null, filter = null, q = null, criteria = null } = {}) {
             const params = {
                 limit,
                 offset,
@@ -15,11 +15,11 @@ export default function SubscriptionsResource({apiHandler}) {
             return await apiHandler.getAll(`subscriptions`, params);
         },
 
-        async getAllMatchedRules({id}) {
+        async getAllMatchedRules({ id }) {
             return await apiHandler.getAll(`subscriptions/${id}/matched-rules`);
         },
 
-        async downloadCSV({limit = null, offset = null, sort = null, expand = null, filter = null, q = null, criteria = null} = {}) {
+        async downloadCSV({ limit = null, offset = null, sort = null, expand = null, filter = null, q = null, criteria = null } = {}) {
             const config = {
                 params: {
                     limit,
@@ -35,19 +35,23 @@ export default function SubscriptionsResource({apiHandler}) {
             return await apiHandler.download(`subscriptions`, config);
         },
 
-        async get({id, expand = null}) {
+        async get({ id, expand = null }) {
             const params = {
                 expand
             };
             return await apiHandler.get(`subscriptions/${id}`, params);
         },
 
-        async create({id = '', data}) {
+        async create({ id = '', data }) {
             return await apiHandler.create(`subscriptions/${id}`, id, data);
         },
 
-        async update({id, data}) {
+        async update({ id, data }) {
             return await apiHandler.put(`subscriptions/${id}`, data);
+        },
+
+        async issueInterimInvoice({ id, data }) {
+            return await apiHandler.post(`subscriptions/${id}/interim-invoice`, data);
         },
 
         /**
@@ -57,23 +61,23 @@ export default function SubscriptionsResource({apiHandler}) {
          * @param data
          * @returns {Promise<any>}
          */
-        async cancel({id, data}) {
+        async cancel({ id, data }) {
             return await apiHandler.post(`subscriptions/${id}/cancel`, data);
         },
 
-        async changePlan({id, data}) {
+        async changePlan({ id, data }) {
             return await apiHandler.post(`subscriptions/${id}/change-plan`, data);
         },
 
-        async getLeadSource({id}) {
+        async getLeadSource({ id }) {
             return await apiHandler.get(`subscriptions/${id}/lead-source`);
         },
 
-        async createLeadSource({id, data}) {
+        async createLeadSource({ id, data }) {
             return await apiHandler.put(`subscriptions/${id}/lead-source`, data);
         },
 
-        async deleteLeadSource({id}) {
+        async deleteLeadSource({ id }) {
             return await apiHandler.delete(`subscriptions/${id}/lead-source`);
         }
     };
