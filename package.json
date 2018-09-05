@@ -27,7 +27,7 @@
   ],
   "files": [
     "index.js",
-    "dist"
+    "src"
   ],
   "author": "Andrei Moldoveanu",
   "license": "MIT",
