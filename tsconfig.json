@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "outDir": "./lib/",
+        "strictNullChecks": true,
+        "target": "es6",
+        "module": "commonjs",
+        "lib": [
+            "es2016"
+        ],
+        "noUnusedLocals": true,
+        "allowUnusedLabels": false,
+        "sourceMap": true,
+        "allowJs": true
+    },
+    "include": [
+        "./src/**/*",
+        "./node_modules/@types/**/*.d.ts"
+    ],
+    "exclude": [],
+    "noEmit": true,
+}

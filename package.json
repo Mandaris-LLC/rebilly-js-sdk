@@ -3,7 +3,7 @@
   "version": "8.1.1",
   "description": "Official Rebilly API JS library for the browser and Node",
   "browser": "./dist/rebilly-js-sdk.js",
-  "main": "./src/rebilly-js-sdk.node.js",
+  "main": "./lib/index.js",
   "scripts": {
     "clean": "rimraf dist && rimraf coverage",
     "build:prod": "npm run clean && webpack --env=prod",
@@ -27,7 +27,7 @@
   ],
   "files": [
     "index.js",
-    "src"
+    "lib"
   ],
   "author": "Andrei Moldoveanu",
   "license": "MIT",
